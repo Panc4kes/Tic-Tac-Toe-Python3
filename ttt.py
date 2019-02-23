@@ -1,10 +1,9 @@
-import sys
 pos = {
     "1":{"1": " ", "2": " ", "3": " ",},
     "2":{"1": " ", "2": " ", "3": " ",},
     "3":{"1": " ", "2": " ", "3": " ",}
     }
-       
+
 def test():
     comb = [pos["1"]["1"]+pos["1"]["2"]+pos["1"]["3"],
        pos["2"]["1"]+pos["2"]["2"]+pos["2"]["3"],
@@ -26,7 +25,7 @@ def display():
     print("[{0}][{1}][{2}]".format(pos["1"]["1"],pos["2"]["1"],pos["3"]["1"]))
     print("[{0}][{1}][{2}]".format(pos["1"]["2"],pos["2"]["2"],pos["3"]["2"]))
     print("[{0}][{1}][{2}]".format(pos["1"]["3"],pos["2"]["3"],pos["3"]["3"]))
-    
+
 def resolve(posi,turn):
     x,y = eval(posi)
     sym = turn
@@ -48,7 +47,7 @@ def P1():
     print("Player 1's turn!")
     resolve(input(),turn)
     P2()
-    
+
 def P2():
     test()
     turn = "X"
@@ -63,6 +62,6 @@ def ask():
         P1()
     else:
         sys.exit()
-          
+
 while True:
     P1()
