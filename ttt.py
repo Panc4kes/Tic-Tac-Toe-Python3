@@ -28,22 +28,29 @@ def display():
     print("[{0}][{1}][{2}]".format(pos["1"]["3"],pos["2"]["3"],pos["3"]["3"]))
 
 def resolve(posi,turn):
-    x,y = eval(posi)
-    sym = turn
     try:
-        if pos[str(x)][str(y)] in ["X","O"]:
-            print("There's already a marker there!")
-            display()
-            if turn == "X":
-                P2()
-            else:
-                P1()
-        else:
-            pos[str(x)][str(y)] = sym
-            display()
+        x,y = eval(posi)
     except:
-        print("coordinates not recognised, try again.")
-        resolve()
+        print("Invalid coordinates, try again!")
+        if turn == "X":
+            P2()
+        else:
+            P1()
+    sym = turn
+
+    if pos[str(x)][str(y)] in ["X","O"]:
+        print("There's already a marker there!")
+        display()
+        if turn == "X":
+            P2()
+        else:
+            P1()
+    else:
+        pos[str(x)][str(y)] = sym
+        display()
+
+    print("coordinates not recognised, try again.")
+    resolve()
 
 def P1():
     test()
@@ -71,3 +78,4 @@ def ask():
     else:
         print("Undefined keyword")
         ask()
+P1()
