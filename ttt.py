@@ -1,3 +1,4 @@
+import sys
 pos = {
     "1":{"1": " ", "2": " ", "3": " ",},
     "2":{"1": " ", "2": " ", "3": " ",},
@@ -29,16 +30,20 @@ def display():
 def resolve(posi,turn):
     x,y = eval(posi)
     sym = turn
-    if pos[str(x)][str(y)] in ["X","O"]:
-        print("There's already a marker there!")
-        display()
-        if turn == "X":
-              P2()
+    try:
+        if pos[str(x)][str(y)] in ["X","O"]:
+            print("There's already a marker there!")
+            display()
+            if turn == "X":
+                P2()
+            else:
+                P1()
         else:
-              P1()
-    else:
-        pos[str(x)][str(y)] = sym
-        display()
+            pos[str(x)][str(y)] = sym
+            display()
+    except:
+        print("coordinates not recognised, try again.")
+        resolve()
 
 def P1():
     test()
@@ -59,7 +64,10 @@ def P2():
 def ask():
     print("play again? Y/N")
     inp = input()
-    if inp == "Y":
+    if inp.lower() == "y":
         P1()
-    else:
+    elif inp.lower() == "n":
         sys.exit()
+    else:
+        print("Undefined keyword")
+        ask()
