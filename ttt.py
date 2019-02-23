@@ -54,7 +54,7 @@ def P2():
     print("give coordinates of placement, x,y.")
     print("Player 2's turn!")
     resolve(input(),turn)
-    p1()
+    P1()
 
 def ask():
     print("play again? Y/N")
