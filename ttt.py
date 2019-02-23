@@ -43,7 +43,7 @@ def menu():
     elif inp == "3":
         sys.exit()
     else:
-        print("invalid keyword, press 'enter' to return to menu\n")
+        print("Invalid keyword, press 'enter' to return to menu\n")
         input()
         menu()
 
@@ -90,7 +90,7 @@ def resolve(posi,turn):
             pos[str(x)][str(y)] = sym
             display()
     except:
-        print("coordinates outside of range! (max 3,3)\n")
+        print("Coordinates outside of range! (max 3,3)\n")
         if turn == "X":
                 P2()
         else:
@@ -100,7 +100,7 @@ def resolve(posi,turn):
 def P1():
     test()
     turn = "O"
-    print("give coordinates of placement, in the format of x,y")
+    print("Give coordinates of placement, in the format of x,y")
     print("Player 1's turn!\n")
     resolve(input("> "),turn)
     P2()
@@ -108,7 +108,7 @@ def P1():
 def P2():
     test()
     turn = "X"
-    print("give coordinates of placement, in the format of x,y")
+    print("Give coordinates of placement, in the format of x,y")
     print("Player 2's turn!\n")
     resolve(input("> "),turn)
     P1()
