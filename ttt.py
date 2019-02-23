@@ -62,7 +62,14 @@ def test():
         ask()
     elif "XXX" in comb:
         print("PLAYER 2 WON!")
+        ask()
 
+    for x in pos:
+        if x != " ":
+            places_taken +=1
+    if places taken == 9:
+        print("GAME OVER NO ONE WON")
+        ask()
 def display():
     print("\n[{0}][{1}][{2}]".format(pos["1"]["1"],pos["2"]["1"],pos["3"]["1"]))
     print("[{0}][{1}][{2}]".format(pos["1"]["2"],pos["2"]["2"],pos["3"]["2"]))
