@@ -8,6 +8,8 @@ def clear():
 
 __license__ = open("LICENSE","r").read()
 
+allTurns = 0
+
 pos = {
     "1":{"1": " ", "2": " ", "3": " ",},
     "2":{"1": " ", "2": " ", "3": " ",},
@@ -58,24 +60,22 @@ def test():
        pos["3"]["1"]+pos["2"]["2"]+pos["1"]["3"]]
 
     if "OOO" in comb:
-        print("PLAYER 1 WON!")
+        print("GAME OVER: PLAYER 1 WON!")
         ask()
     elif "XXX" in comb:
-        print("PLAYER 2 WON!")
+        print("GAME OVER: PLAYER 2 WON!")
+        ask()
+    elif allTurns == 9:
+        print("GAME OVER: TIE")
         ask()
 
-    for x in pos:
-        if x != " ":
-            places_taken +=1
-    if places taken == 9:
-        print("GAME OVER NO ONE WON")
-        ask()
 def display():
     print("\n[{0}][{1}][{2}]".format(pos["1"]["1"],pos["2"]["1"],pos["3"]["1"]))
     print("[{0}][{1}][{2}]".format(pos["1"]["2"],pos["2"]["2"],pos["3"]["2"]))
     print("[{0}][{1}][{2}]".format(pos["1"]["3"],pos["2"]["3"],pos["3"]["3"]),"\n")
 
 def resolve(posi,turn):
+    global allTurns
     try:
         x,y = eval(posi)
     except:
@@ -94,6 +94,7 @@ def resolve(posi,turn):
             else:
                 P1()
         else:
+            allTurns += 1
             pos[str(x)][str(y)] = sym
             display()
     except:
@@ -123,10 +124,12 @@ def P2():
 def ask():
     global pos
     global pos_clear
+    global allTurns
     print("play again? (Y/N)")
     inp = input()
     if inp.lower() == "y":
         pos = pos_clear
+        allTurns = 0
         clear()
         P1()
     elif inp.lower() == "n":
