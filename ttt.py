@@ -49,8 +49,6 @@ def resolve(posi,turn):
         pos[str(x)][str(y)] = sym
         display()
 
-    print("coordinates not recognised, try again.")
-    resolve()
 
 def P1():
     test()
