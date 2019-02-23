@@ -37,17 +37,23 @@ def resolve(posi,turn):
         else:
             P1()
     sym = turn
-
-    if pos[str(x)][str(y)] in ["X","O"]:
-        print("There's already a marker there!")
-        display()
-        if turn == "X":
-            P2()
+    try:
+        if pos[str(x)][str(y)] in ["X","O"]:
+            print("There's already a marker there!")
+            display()
+            if turn == "X":
+                P2()
+            else:
+                P1()
         else:
-            P1()
-    else:
-        pos[str(x)][str(y)] = sym
-        display()
+            pos[str(x)][str(y)] = sym
+            display()
+    except:
+        print("coordinates outside of range! (max 3,3)")
+        if turn == "X":
+                P2()
+        else:
+                P1()
 
 
 def P1():
