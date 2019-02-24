@@ -98,9 +98,9 @@ def resolve(posi,turn):
     except:
         print("Coordinates outside of range! (max 3,3)\n")
         if turn == "X":
-                P2()
+            P2()
         else:
-                P1()
+            P1()
 
 
 def P1():
@@ -128,6 +128,7 @@ def ask():
         inp = input("> ")
         if inp.lower() == "n":
             sys.exit()
+            
         elif inp.lower() == "y":
             pos = {
     "1":{"1": " ", "2": " ", "3": " ",},
