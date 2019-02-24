@@ -125,16 +125,17 @@ def ask():
     global pos
     global pos_clear
     global allTurns
-    print("play again? (Y/N)")
-    inp = input()
-    if inp.lower() == "y":
-        pos = pos_clear
-        allTurns = 0
-        clear()
-        P1()
-    elif inp.lower() == "n":
-        sys.exit()
-    else:
-        print("Undefined keyword")
-        ask()
+    while True:
+        print("\nplay again? (Y/N)")
+        inp = input("> ")
+        if inp.lower() == "y":
+            pos = pos_clear
+            allTurns = 0
+            clear()
+            P1()
+        elif inp.lower() == "n":
+            sys.exit()
+        else:
+            print("Undefined keyword")
+
 menu()
