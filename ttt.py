@@ -1,5 +1,7 @@
 import sys, platform, os
 
+global pos
+
 def clear():
     if platform.system() == "Windows":
         os.system("cls")
@@ -11,12 +13,6 @@ __license__ = open("LICENSE","r").read()
 allTurns = 0
 
 pos = {
-    "1":{"1": " ", "2": " ", "3": " ",},
-    "2":{"1": " ", "2": " ", "3": " ",},
-    "3":{"1": " ", "2": " ", "3": " ",}
-    }
-
-pos_clear = {
     "1":{"1": " ", "2": " ", "3": " ",},
     "2":{"1": " ", "2": " ", "3": " ",},
     "3":{"1": " ", "2": " ", "3": " ",}
@@ -50,6 +46,8 @@ def menu():
         menu()
 
 def test():
+    global pos
+    global comb
     comb = [pos["1"]["1"]+pos["1"]["2"]+pos["1"]["3"],
        pos["2"]["1"]+pos["2"]["2"]+pos["2"]["3"],
        pos["3"]["1"]+pos["3"]["2"]+pos["3"]["3"],
@@ -123,18 +121,22 @@ def P2():
 
 def ask():
     global pos
-    global pos_clear
     global allTurns
+    global comb
     while True:
         print("\nplay again? (Y/N)")
         inp = input("> ")
-        if inp.lower() == "y":
-            pos = pos_clear
+        if inp.lower() == "n":
+            sys.exit()
+        elif inp.lower() == "y":
+            pos = {
+    "1":{"1": " ", "2": " ", "3": " ",},
+    "2":{"1": " ", "2": " ", "3": " ",},
+    "3":{"1": " ", "2": " ", "3": " ",}
+    }
             allTurns = 0
             clear()
             P1()
-        elif inp.lower() == "n":
-            sys.exit()
         else:
             print("Undefined keyword")
 
