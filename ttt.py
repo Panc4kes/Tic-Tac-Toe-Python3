@@ -118,9 +118,6 @@ def P2():
     print("Player 2's turn!\n")
     resolve(input("> "),turn)
     P1()
-
-def exit():
-    sys.exit()
     
 def ask():
     global pos
@@ -130,7 +127,7 @@ def ask():
         print("\nplay again? (Y/N)")
         inp = input("> ")
         if inp.lower() == "n":
-            exit()
+            raise SystemExit
             
         elif inp.lower() == "y":
             pos = {
